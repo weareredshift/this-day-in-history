@@ -1,5 +1,4 @@
 const wiki = require('wikijs').default;
-const chrono = require('chrono-node');
 
 const dateyRegex = /\d{4}|\d{2}|\d{1}|(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/g;
 
