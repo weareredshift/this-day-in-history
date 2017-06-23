@@ -16,9 +16,7 @@ function sendQuery() {
 
 function populateResults(results) {
 	const resNode = document.getElementById('search-results');
-	const parsedDates = [];
 	resNode.innerHTML = '';
-	let paraOffset = -7;
 	
 	Promise.all(
 		arrUnique(results
@@ -47,7 +45,6 @@ function populateResults(results) {
 						.slice(0,5)
 						.map(formatDate)
 						.forEach(pDate => {
-							parsedDates.push(pDate);
 							const el = fragmentFromString(`<li><p><strong>${pDate}</strong></p></li>`);
 							resNode.appendChild(el);
 							resNode.children[resNode.children.length - 1].secretDate = pDate;
@@ -60,9 +57,7 @@ function populateResults(results) {
 					 if (node.nodeName === "LI") {
 						 node.addEventListener(
 							 'click',
-							 () => {
-								 selectDate(node.secretDate);
-							 },
+							 () => selectDate(node.secretDate),
 							 false);
 					 }
 				 })
